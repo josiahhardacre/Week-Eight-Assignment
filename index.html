@@ -50,10 +50,25 @@ function runit() {
 import turtle
 t = turtle.Turtle()
 
-for c in ["red","green","blue","yellow","orange"]:
-    t.color(c)
-    t.forward(100)
-    t.left(144)
+inputnumber = int(input("Insert number of sides for your polygon between 2 and 25: "))
+lower = 3
+highest = 24
+while inputnumber < lower or inputnumber > highest :
+    print("Value outside of range.")
+    inputnumber = int(input("Insert number of sides for your polygon between 2 and 25: "))
+totalangle = 180
+subtract = 2
+rotation = totalangle - (((inputnumber - subtract) * totalangle)/inputnumber)  
+length = 20
+
+for number in range(inputnumber):
+    t.forward(length)
+    t.left(rotation)
+    
+# for c in ["red","green","blue","yellow","orange"]:
+#   t.color(c)
+#   t.forward(100)
+#   t.left(144)
 
 </textarea><br /> 
 <button type="button" onclick="runit()">Run</button> 
